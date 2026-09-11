@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#f5f5f5" />
+  <rect width="1200" height="800" fill="url(#grid)" />
+  <rect x="50" y="50" width="1100" height="700" fill="none" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4" />
+  <text x="600" y="350" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#9ca3af" dy="0.3em">
+    Image Placeholder
+  </text>
+  <text x="600" y="420" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#d1d5db">
+    Add your project or product image here
+  </text>
+  <text x="600" y="470" font-family="system-ui, sans-serif" font-size="16" text-anchor="middle" fill="#d1d5db">
+    Recommended size: 1200x800px
+  </text>
+</svg>

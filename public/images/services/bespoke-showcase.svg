@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <defs>
+    <linearGradient id="bg4" x1="0" x2="1">
+      <stop offset="0%" stop-color="#efeae5"/>
+      <stop offset="100%" stop-color="#d7d0ca"/>
+    </linearGradient>
+    <linearGradient id="wood2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7f4d32"/>
+      <stop offset="100%" stop-color="#38251b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#bg4)"/>
+  <rect x="120" y="150" width="1360" height="800" fill="#f6f1eb"/>
+  <rect x="220" y="220" width="1160" height="610" fill="#efe5dc"/>
+  <rect x="295" y="260" width="320" height="500" fill="url(#wood2)"/>
+  <rect x="665" y="260" width="295" height="500" fill="#efe8e2"/>
+  <rect x="1010" y="260" width="300" height="500" fill="#d9bea0"/>
+  <rect x="340" y="310" width="230" height="350" fill="#5b3d2a" opacity="0.25"/>
+  <rect x="725" y="320" width="180" height="180" fill="#f5f1ee"/>
+  <rect x="725" y="545" width="180" height="160" fill="#efe3d5"/>
+  <rect x="1065" y="315" width="200" height="170" fill="#f6f3ef"/>
+  <rect x="1065" y="530" width="200" height="175" fill="#f0e6da"/>
+  <rect x="220" y="840" width="1160" height="80" fill="#8d5c3d" opacity="0.9"/>
+  <path d="M560 260h65v500h-65z" fill="#c9ab8a" opacity="0.75"/>
+  <path d="M970 260h65v500h-65z" fill="#c9ab8a" opacity="0.75"/>
+  <rect x="620" y="160" width="360" height="60" fill="#f8f5f2" opacity="0.9"/>
+  <rect x="675" y="185" width="250" height="8" fill="#c2956a"/>
+</svg>

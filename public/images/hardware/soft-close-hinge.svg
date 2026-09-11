@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="hbg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="100%" stop-color="#d8cab9"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" x2="1">
+      <stop offset="0%" stop-color="#d5d9db"/>
+      <stop offset="100%" stop-color="#7d8286"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#hbg)"/>
+  <rect x="150" y="120" width="900" height="660" rx="18" fill="#f8f5f1"/>
+  <path d="M220 600h770" stroke="#bba485" stroke-width="18" stroke-linecap="round"/>
+  <path d="M280 600c40-95 132-155 220-155h180c110 0 200 74 220 155" fill="none" stroke="url(#metal)" stroke-width="28" stroke-linecap="round"/>
+  <path d="M270 600v-220" stroke="url(#metal)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M930 600v-220" stroke="url(#metal)" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="560" cy="600" r="82" fill="#dfe3e5"/>
+  <circle cx="560" cy="600" r="33" fill="#819097"/>
+  <circle cx="760" cy="600" r="82" fill="#dfe3e5"/>
+  <circle cx="760" cy="600" r="33" fill="#819097"/>
+  <path d="M480 530h160" stroke="#8e9397" stroke-width="14" stroke-linecap="round"/>
+  <path d="M680 530h160" stroke="#8e9397" stroke-width="14" stroke-linecap="round"/>
+</svg>

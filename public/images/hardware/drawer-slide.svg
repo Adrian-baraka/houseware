@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="d1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#efe8e1"/>
+      <stop offset="100%" stop-color="#d0c2af"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e3e7ea"/>
+      <stop offset="100%" stop-color="#7d8285"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#d1)"/>
+  <rect x="160" y="190" width="880" height="500" rx="18" fill="#f6f3f0"/>
+  <rect x="210" y="240" width="780" height="110" fill="#d5d7d9"/>
+  <rect x="210" y="370" width="780" height="110" fill="#d5d7d9"/>
+  <rect x="210" y="500" width="780" height="110" fill="#d5d7d9"/>
+  <rect x="245" y="255" width="710" height="80" fill="url(#steel)" opacity="0.8"/>
+  <rect x="245" y="385" width="710" height="80" fill="url(#steel)" opacity="0.8"/>
+  <rect x="245" y="515" width="710" height="80" fill="url(#steel)" opacity="0.8"/>
+  <path d="M280 670h640" stroke="#a9997d" stroke-width="16" stroke-linecap="round"/>
+  <path d="M400 240v370" stroke="#8b9195" stroke-width="10"/>
+  <path d="M800 240v370" stroke="#8b9195" stroke-width="10"/>
+</svg>

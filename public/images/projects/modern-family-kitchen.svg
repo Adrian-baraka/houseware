@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <defs>
+    <linearGradient id="kbg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f3efe9"/>
+      <stop offset="100%" stop-color="#d7cfc5"/>
+    </linearGradient>
+    <linearGradient id="kwood" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f4f0ec"/>
+      <stop offset="100%" stop-color="#c8b59d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#kbg)"/>
+  <rect x="120" y="130" width="1360" height="830" fill="#f8f4f1"/>
+  <rect x="170" y="330" width="1280" height="450" fill="#f5f0ea"/>
+  <rect x="200" y="370" width="240" height="350" fill="url(#kwood)"/>
+  <rect x="470" y="370" width="230" height="350" fill="url(#kwood)"/>
+  <rect x="730" y="370" width="220" height="350" fill="url(#kwood)"/>
+  <rect x="980" y="370" width="240" height="350" fill="url(#kwood)"/>
+  <rect x="1250" y="370" width="140" height="350" fill="#d8b998"/>
+  <rect x="240" y="780" width="1090" height="90" fill="#ba865d"/>
+  <rect x="610" y="205" width="420" height="150" fill="#f0e6dc"/>
+  <rect x="660" y="240" width="320" height="22" fill="#cb9e70"/>
+  <circle cx="1305" cy="245" r="85" fill="#f5f1ee"/>
+  <circle cx="1305" cy="245" r="52" fill="#e0bf93"/>
+  <path d="M290 930h1010v30H290z" fill="#86715c" opacity="0.75"/>
+</svg>
