@@ -5,12 +5,15 @@ import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import SectionTitle from '@/components/SectionTitle';
 import ProjectCard from '@/components/ProjectCard';
+import HardwareProductCard from '@/components/HardwareProductCard';
 import { SERVICES, HOW_WE_WORK } from '@/lib/data/company';
 import { PROJECTS } from '@/lib/data/projects';
+import { HARDWARE_PRODUCTS } from '@/lib/data/hardware';
 import { getWhatsAppLink } from '@/lib/config';
 
 export default function Home() {
-  const featuredProjects = PROJECTS.slice(0, 3);
+  const featuredProjects = PROJECTS.slice(0, 4);
+  const featuredHardware = HARDWARE_PRODUCTS.slice(0, 4);
   const whatsappLink = getWhatsAppLink(
     'Hello Houseware, I would like to book a site visit for a custom project.'
   );
@@ -19,33 +22,54 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <HeroSection
-        title="Bespoke Cabinetry, Designed For Your Space"
-        subtitle="Custom kitchens, wardrobes and TV cabinetry crafted around the way you live"
+        title="Spaces made for the way you live."
+        subtitle="Houseware creates bespoke cabinetry and interior solutions — custom kitchens, wardrobes, TV cabinets and made-to-measure storage — designed around your space, your needs, and your style."
         backgroundImage="/images/projects/houseware-kitchen-walnut-marble-04.jpg"
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-          <Link
-            href="/book-consultation"
-            className="px-8 py-4 bg-hw-warm text-white font-semibold hover:bg-hw-charcoal transition-colors"
-          >
-            Book a Site Visit
-          </Link>
-          <Link
-            href="/projects"
-            className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-hw-charcoal transition-colors"
-          >
-            Explore Our Projects
-          </Link>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <p className="text-xs md:text-sm uppercase tracking-widest font-semibold text-hw-warm mb-6 animate-fade-in">
+            BESPOKE CABINETRY & INTERIORS
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Link
+              href="/book-consultation"
+              className="px-8 py-4 bg-hw-warm text-hw-charcoal font-semibold hover:bg-white transition-colors"
+            >
+              Book a Site Visit
+            </Link>
+            <Link
+              href="/projects"
+              className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-hw-charcoal transition-colors"
+            >
+              Explore Our Projects
+            </Link>
+          </div>
         </div>
       </HeroSection>
 
-      {/* Main Content */}
-      <div className="bg-hw-cream">
-        {/* Services Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Introduction / Brand Statement */}
+      <section className="bg-hw-cream">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-hw-charcoal">
+              Bespoke cabinetry, thoughtfully designed.
+            </h2>
+            <p className="text-lg md:text-xl text-hw-taupe leading-relaxed max-w-3xl mx-auto">
+              We design and build custom cabinetry around the way you live — not the other way around.
+              Every kitchen, wardrobe, media wall and storage solution begins with your space, your
+              requirements and your desired finish. The result is cabinetry that fits perfectly,
+              functions beautifully, and ages gracefully.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <SectionTitle
-            title="Made Around Your Space"
-            subtitle="We create custom cabinetry solutions designed specifically for you"
+            title="Our Services"
+            subtitle="Four cabinetry disciplines, each tailored to your space"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
@@ -55,169 +79,247 @@ export default function Home() {
                 href={`/services/${service.slug}`}
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden bg-hw-stone aspect-square mb-5">
+                <div className="relative overflow-hidden bg-hw-stone aspect-[4/5] mb-5">
                   <Image
                     src={service.image}
                     alt={service.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-hw-charcoal mb-2 group-hover:text-hw-warm transition-colors">
                   {service.name}
                 </h3>
-                <p className="text-sm text-hw-taupe mb-4">{service.description}</p>
-                <span className="text-sm font-medium text-hw-warm group-hover:text-hw-charcoal transition-colors">
-                  Learn More →
+                <p className="text-sm text-hw-taupe mb-4 line-clamp-2">{service.description}</p>
+                <span className="text-sm font-medium text-hw-warm group-hover:text-hw-charcoal transition-colors inline-flex items-center gap-1">
+                  View Details
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </span>
               </Link>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Projects Section */}
-        <section className="bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <SectionTitle title="Our Work" subtitle="A selection of spaces we've designed and brought to life" />
+      {/* Featured Projects */}
+      <section className="bg-hw-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <SectionTitle title="Selected Projects" subtitle="A curation of spaces we've designed and brought to life" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {featuredProjects.map((project, index) => (
+              <div key={project.id} className={index === 0 ? 'lg:col-span-2 lg:row-span-2' : index === 1 ? 'lg:col-span-2' : ''}>
+                <Link href={`/projects/${project.slug}`} className="group cursor-pointer block">
+                  <div className={`relative overflow-hidden bg-hw-stone ${index === 0 ? 'aspect-[4/3]' : 'aspect-square'} mb-4`}>
+                    <Image
+                      src={project.featuredImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes={index === 0
+                        ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw'
+                        : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw'}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg md:text-xl font-serif font-bold text-hw-charcoal group-hover:text-hw-warm transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-hw-taupe uppercase tracking-wider">
+                      {project.location} · {project.type.replace('-', ' ').toUpperCase()}
+                    </p>
+                    <p className="text-sm text-hw-charcoal line-clamp-2 hidden md:block">{project.shortDescription}</p>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/projects"
+              className="inline-block px-8 py-4 bg-hw-charcoal text-white font-semibold hover:bg-hw-sage transition-colors"
+            >
+              View All Projects
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Bespoke Message / Editorial Section */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative bg-hw-stone aspect-[3/4] overflow-hidden">
+              <Image
+                src="/images/services/houseware-cabinetry-office-black-wide-03.jpg"
+                alt="Bespoke cabinetry office interior by Houseware"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
-
-            <div className="text-center mt-12">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-hw-charcoal leading-tight">
+                Designed around your space.
+              </h2>
+              <p className="text-lg text-hw-taupe leading-relaxed">
+                Off-the-shelf furniture forces your space to adapt to it. Bespoke cabinetry works the
+                other way — we design around your room's proportions, your storage needs, your
+                appliances, your lighting, and the way you move through the space.
+              </p>
+              <p className="text-lg text-hw-taupe leading-relaxed">
+                From a kitchen that fits your cooking rhythm to a wardrobe that holds exactly what
+                you own, every millimetre is considered. The result feels inevitable — as though it
+                was always part of the architecture.
+              </p>
               <Link
-                href="/projects"
-                className="inline-block px-8 py-4 bg-hw-charcoal text-white font-semibold hover:bg-hw-sage transition-colors"
+                href="/services/bespoke"
+                className="inline-flex items-center gap-2 text-sm font-medium text-hw-warm hover:text-hw-charcoal transition-colors mt-4"
               >
-                View All Projects
+                Explore Bespoke Cabinetry
+                <svg className="w-4 h-4 transition-transform hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* How We Work Section */}
-        <section className="bg-hw-charcoal text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <SectionTitle
-              title="How We Work"
-              subtitle="Our proven process ensures your project is delivered perfectly"
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-              {HOW_WE_WORK.map((step) => (
-                <div key={step.step} className="space-y-4">
-                  <div className="text-5xl font-serif font-bold text-hw-warm mb-4">
-                    {step.step}
-                  </div>
-                  <h3 className="text-xl font-bold">{step.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Why Houseware Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* How We Work */}
+      <section className="bg-hw-charcoal text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <SectionTitle
-            title="Why Houseware"
-            subtitle="Expertise, attention to detail, and a commitment to your vision"
+            title="How We Work"
+            subtitle="A clear, collaborative process from first conversation to final installation"
+            centered={true}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            {HOW_WE_WORK.map((step) => (
+              <div key={step.step} className="space-y-4">
+                <div className="text-4xl md:text-5xl font-serif font-bold text-hw-warm mb-2">
+                  {step.step}
+                </div>
+                <h3 className="text-xl font-bold">{step.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/book-consultation"
+              className="inline-block px-8 py-4 bg-hw-warm text-hw-charcoal font-semibold hover:bg-white transition-colors"
+            >
+              Book a Site Visit
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Hardware Cross-Sell Section */}
+      <section className="bg-hw-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <SectionTitle
+            title="The details behind the finish."
+            subtitle="Professional hardware and interior finishing products — the same components we trust in our own cabinetry"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+            {featuredHardware.map((product) => (
+              <HardwareProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/hardware"
+              className="inline-block px-8 py-4 bg-hw-charcoal text-white font-semibold hover:bg-hw-sage transition-colors"
+            >
+              Explore Hardware Catalogue
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Houseware / Trust Section */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <SectionTitle
+            title="Why Houseware"
+            subtitle="What sets our approach apart"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {[
               {
-                title: 'Designed For Your Space',
-                description:
-                  'Every project begins with understanding your unique requirements and constraints.',
+                title: 'Bespoke by definition',
+                description: 'No standard sizes, no catalogue constraints. Every project is designed from scratch for your space.',
               },
               {
-                title: 'Bespoke, Not Off-The-Shelf',
-                description:
-                  'We customize every aspect of your cabinetry to match your aesthetic and functional needs.',
+                title: 'Space-specific solutions',
+                description: 'We work around awkward corners, sloped ceilings, existing appliances and architectural quirks.',
               },
               {
-                title: 'Attention To Detail',
-                description:
-                  'From materials selection to final installation, we maintain the highest standards.',
+                title: 'Quality craftsmanship',
+                description: 'Premium materials, professional-grade hardware, and meticulous joinery — built to last decades.',
               },
               {
-                title: 'Quality Materials & Hardware',
-                description:
-                  'We source premium materials and professional-grade hardware that last.',
+                title: 'Consultation & site measurement',
+                description: 'We visit your location to understand the space and take precise measurements before designing.',
               },
               {
-                title: 'Professional Installation',
-                description:
-                  'Our experienced team ensures flawless installation and finishing of your projects.',
+                title: 'Professional installation',
+                description: 'Our experienced team handles delivery, fitting, and finishing — leaving your space ready to use.',
               },
               {
-                title: 'Local Expertise',
-                description:
-                  'We understand the Tanzanian climate and local design preferences.',
+                title: 'Cabinetry & hardware under one brand',
+                description: 'The same hinges, slides, handles and organisers we supply to professionals go into every project we build.',
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 border border-hw-stone">
+              <div key={idx} className="bg-hw-cream p-8 border border-hw-stone">
                 <h3 className="text-lg font-bold text-hw-charcoal mb-3">{item.title}</h3>
                 <p className="text-sm text-hw-taupe leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Hardware Cross-Sell */}
-        <section className="bg-gray-50 border-t border-hw-stone">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="bg-white p-8 md:p-12 border border-hw-stone flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-serif font-bold text-hw-charcoal mb-3">
-                  Professional Hardware & Finishing Products
-                </h3>
-                <p className="text-hw-taupe mb-6">
-                  Looking for professional cabinet hardware and interior finishing solutions? Houseware also supplies a curated selection of premium hardware, hinges, drawer slides, and accessories for furniture makers, interior designers, and contractors.
-                </p>
-                <Link
-                  href="/hardware"
-                  className="inline-block px-6 py-3 bg-hw-charcoal text-white font-semibold hover:bg-hw-sage transition-colors"
-                >
-                  Explore Hardware Catalogue
-                </Link>
-              </div>
-            </div>
+      {/* Final CTA */}
+      <section className="bg-hw-charcoal text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
+            Planning a new space?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Whether you're at the ideas stage or ready to build, we're here to discuss your project
+            and arrange a site visit at your convenience.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/book-consultation"
+              className="px-8 py-4 bg-hw-warm text-hw-charcoal font-semibold hover:bg-white transition-colors"
+            >
+              Book a Site Visit
+            </Link>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors"
+            >
+              Contact via WhatsApp
+            </a>
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-hw-charcoal text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Let's Discuss Your Space
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Whether you're planning a custom kitchen, wardrobe, or bespoke cabinetry solution, we'd love to discuss your project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/book-consultation"
-                className="px-8 py-4 bg-hw-warm text-hw-charcoal font-semibold hover:bg-white transition-colors"
-              >
-                Book a Site Visit
-              </Link>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors"
-              >
-                Contact via WhatsApp
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   );
 }
