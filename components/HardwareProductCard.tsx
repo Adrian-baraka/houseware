@@ -11,8 +11,11 @@ interface HardwareProductCardProps {
 }
 
 export default function HardwareProductCard({ product }: HardwareProductCardProps) {
-  const whatsappMessage = `Hello Houseware, I am interested in the ${product.name}. Could you please provide availability and pricing?`;
+  const whatsappMessage = `Hello Houseware, I would like to enquire about ${product.sku} — ${product.name}.`;
   const whatsappLink = getWhatsAppLink(whatsappMessage);
+
+  // Get first specification for display
+  const firstSpec = product.specifications ? Object.entries(product.specifications)[0] : null;
 
   return (
     <div className="bg-white border border-hw-stone rounded-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -20,7 +23,7 @@ export default function HardwareProductCard({ product }: HardwareProductCardProp
       <div className="relative bg-hw-stone aspect-square overflow-hidden">
         <Image
           src={product.image}
-          alt={product.name}
+          alt={`${product.name} ${product.sku}`}
           fill
           className="object-cover hover:scale-105 transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -51,14 +54,22 @@ export default function HardwareProductCard({ product }: HardwareProductCardProp
             {product.category.replace('-', ' ')}
           </p>
           <h3 className="text-lg font-bold text-hw-charcoal">{product.name}</h3>
+          <p className="text-xs text-hw-taupe mt-1">SKU: {product.sku}</p>
         </div>
 
         <p className="text-sm text-hw-charcoal line-clamp-2">
           {product.shortDescription}
         </p>
 
+        {firstSpec && (
+          <div className="text-xs text-hw-taupe bg-hw-cream px-3 py-2 rounded">
+            <span className="font-semibold capitalize">{firstSpec[0].replace('_', ' ')}:</span> {firstSpec[1]}
+          </div>
+        )}
+
         <div className="flex items-center justify-between pt-2">
           <span className="text-sm font-semibold text-hw-taupe">{product.priceDisplay}</span>
+          <span className="text-xs text-hw-taupe">/ {product.unit}</span>
         </div>
 
         {/* CTA Button */}

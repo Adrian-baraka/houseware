@@ -7,16 +7,18 @@ import HardwareProductCard from '@/components/HardwareProductCard';
 import {
   HARDWARE_PRODUCTS,
   HARDWARE_CATEGORIES,
+  PRODUCT_GROUPS,
   searchProducts,
-  getProductsByCategory,
+  getProductsByGroup,
   ProductCategory,
+  ProductGroup,
 } from '@/lib/data/hardware';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 export default function HardwarePage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
-  const [sortBy, setSortBy] = useState<'name' | 'category'>('name');
+  const [selectedGroup, setSelectedGroup] = useState<ProductGroup | 'all'>('all');
+  const [sortBy, setSortBy] = useState<'featured' | 'name' | 'price-low' | 'price-high'>('featured');
 
   // Filter and search products
   const filteredProducts = useMemo(() => {
@@ -27,23 +29,34 @@ export default function HardwarePage() {
       results = searchProducts(searchQuery);
     }
 
-    // Apply category filter
-    if (selectedCategory !== 'all') {
-      results = results.filter((p) => p.category === selectedCategory);
+    // Apply group filter
+    if (selectedGroup !== 'all') {
+      results = results.filter((p) => p.group === selectedGroup);
     }
 
     // Sort
     if (sortBy === 'name') {
       results.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortBy === 'category') {
-      results.sort((a, b) => a.category.localeCompare(b.category));
+    } else if (sortBy === 'price-low') {
+      results.sort((a, b) => {
+        const priceA = parseFloat(a.priceDisplay.replace(/[^0-9.]/g, '')) || 0;
+        const priceB = parseFloat(b.priceDisplay.replace(/[^0-9.]/g, '')) || 0;
+        return priceA - priceB;
+      });
+    } else if (sortBy === 'price-high') {
+      results.sort((a, b) => {
+        const priceA = parseFloat(a.priceDisplay.replace(/[^0-9.]/g, '')) || 0;
+        const priceB = parseFloat(b.priceDisplay.replace(/[^0-9.]/g, '')) || 0;
+        return priceB - priceA;
+      });
     }
+    // 'featured' keeps original order
 
     return results;
-  }, [searchQuery, selectedCategory, sortBy]);
+  }, [searchQuery, selectedGroup, sortBy]);
 
-  const categories = Object.entries(HARDWARE_CATEGORIES).map(([key, value]) => ({
-    id: key as ProductCategory,
+  const groups = Object.entries(PRODUCT_GROUPS).map(([key, value]) => ({
+    id: key as ProductGroup,
     name: value.name,
   }));
 
@@ -71,7 +84,7 @@ export default function HardwarePage() {
               <HiMagnifyingGlass className="text-hw-taupe" size={20} />
               <input
                 type="text"
-                placeholder="Search products... (e.g., hinges, drawer, organiser)"
+                placeholder="Search products... (e.g., H-011, hinge, skirting, organizer)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="flex-1 bg-hw-stone border-0 outline-none text-hw-charcoal placeholder-hw-taupe"
@@ -80,20 +93,20 @@ export default function HardwarePage() {
 
             {/* Filters Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Category Filter */}
+              {/* Group Filter */}
               <div>
                 <label className="text-sm font-semibold text-hw-taupe uppercase tracking-wider">
                   Category
                 </label>
                 <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value as ProductCategory | 'all')}
+                  value={selectedGroup}
+                  onChange={(e) => setSelectedGroup(e.target.value as ProductGroup | 'all')}
                   className="w-full mt-2 px-3 py-2 border border-hw-stone rounded text-hw-charcoal"
                 >
                   <option value="all">All Categories</option>
-                  {categories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>
-                      {cat.name}
+                  {groups.map((grp) => (
+                    <option key={grp.id} value={grp.id}>
+                      {grp.name}
                     </option>
                   ))}
                 </select>
@@ -106,11 +119,13 @@ export default function HardwarePage() {
                 </label>
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as 'name' | 'category')}
+                  onChange={(e) => setSortBy(e.target.value as 'featured' | 'name' | 'price-low' | 'price-high')}
                   className="w-full mt-2 px-3 py-2 border border-hw-stone rounded text-hw-charcoal"
                 >
-                  <option value="name">Product Name</option>
-                  <option value="category">Category</option>
+                  <option value="featured">Featured</option>
+                  <option value="name">Name A–Z</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
                 </select>
               </div>
 
@@ -141,7 +156,7 @@ export default function HardwarePage() {
               <button
                 onClick={() => {
                   setSearchQuery('');
-                  setSelectedCategory('all');
+                  setSelectedGroup('all');
                 }}
                 className="px-6 py-2 bg-hw-charcoal text-white text-sm hover:bg-hw-sage transition-colors"
               >
