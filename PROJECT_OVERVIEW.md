@@ -338,12 +338,17 @@ Edit centralized data files in `lib/data/` - no hardcoding!
 ⚠️ **WhatsApp Number**
 - Must be updated in `lib/config.ts`
 - Format: `255XXXXXXXXX` (no + or spaces)
-- Currently: `[INSERT WHATSAPP NUMBER]`
+- Currently: `255714881668`
 
 ⚠️ **Company Information**  
-- All placeholder text in `lib/data/company.ts`
-- Phone, email, address, social links
-- Company story currently has placeholder
+- All placeholder text in `lib/data/company.ts` has been updated
+- Phone: +255714881668 (Display: 0714 881 668)
+- Secondary WhatsApp: +255716470812 (Display: 0716 470 812)
+- Hardware Sales: +255794738778 (Display: 0794 738 778)
+- Email: housewaretanzania@gmail.com
+- Address: Mbezi Beach Makonde, near Mbezi Garden Hotel, Dar es Salaam, Tanzania
+- Company story updated
+- Social media: @houseware_tz, @my_kitchen.tz
 
 ⚠️ **Project Images**
 - Currently using placeholder SVG

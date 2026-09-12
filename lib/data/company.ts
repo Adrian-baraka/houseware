@@ -1,41 +1,51 @@
 import type { ProductCategory } from './hardware';
 
 export const COMPANY_INFO = {
-  name: 'Houseware Tanzania',
+  name: 'HOUSEWARE TANZANIA LIMITED',
   tagline: 'Bespoke cabinetry & interior solutions designed for your space.',
   
   // Contact Information
-  phone: '[INSERT PHONE NUMBER]',
-  whatsapp: '[INSERT WHATSAPP NUMBER]',
-  email: '[INSERT EMAIL ADDRESS]',
+  phone: '+255714881668',
+  phoneDisplay: '0714 881 668',
+  whatsapp: '+255714881668',
+  whatsappSecondary: '+255716470812',
+  whatsappSecondaryDisplay: '0716 470 812',
+  hardwareSalesPhone: '+255794738778',
+  hardwareSalesPhoneDisplay: '0794 738 778',
+  email: 'housewaretanzania@gmail.com',
   
   // Locations
   locations: [
     {
       id: 'dar-es-salaam',
       name: 'Dar Es Salaam',
-      address: '[INSERT ADDRESS]',
-      phone: '[INSERT PHONE]',
-      whatsapp: '[INSERT WHATSAPP]',
+      address: 'Mbezi Beach Makonde, near Mbezi Garden Hotel, Dar es Salaam, Tanzania',
+      phone: '+255714881668',
+      phoneDisplay: '0714 881 668',
+      whatsapp: '+255714881668',
+      whatsappSecondary: '+255716470812',
+      whatsappSecondaryDisplay: '0716 470 812',
+      hardwareSalesPhone: '+255794738778',
+      hardwareSalesPhoneDisplay: '0794 738 778',
       hours: 'Monday - Saturday: 9:00 AM - 6:00 PM',
       coordinates: {
         lat: -6.7924,
         lng: 39.2083,
       },
     },
-    // Add more locations as needed
   ],
   
   // Social Media
   social: {
-    instagram: '[INSERT INSTAGRAM URL]',
-    facebook: '[INSERT FACEBOOK URL]',
-    tiktok: '[INSERT TIKTOK URL]',
+    instagram: 'https://instagram.com/houseware_tz',
+    instagramKitchen: 'https://instagram.com/my_kitchen.tz',
+    facebook: '',
+    tiktok: '',
   },
   
   // Company Details
-  founded: '[INSERT YEAR]',
-  description: '[INSERT COMPANY STORY]',
+  founded: '2024',
+  description: 'Houseware Tanzania Limited specializes in bespoke cabinetry and interior solutions, including custom kitchens, wardrobes, TV cabinets, and professional hardware. Based in Mbezi Beach Makonde, near Mbezi Garden Hotel, Dar es Salaam, we serve clients across Tanzania with premium design and installation services.',
 };
 
 export interface Service {

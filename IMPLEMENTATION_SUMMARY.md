@@ -234,15 +234,17 @@
 
 1. **WhatsApp Number** (lib/config.ts)
    - Format: 255XXXXXXXXX (Tanzania number without +)
-   - Current placeholder: [INSERT WHATSAPP NUMBER]
+   - Current: 255714881668
    - Used for: All WhatsApp links throughout site
 
 2. **Company Information** (lib/data/company.ts)
-   - Phone number
-   - Email address
-   - Office address
+   - Phone number: +255714881668 (Display: 0714 881 668)
+   - Secondary WhatsApp: +255716470812 (Display: 0716 470 812)
+   - Hardware Sales: +255794738778 (Display: 0794 738 778)
+   - Email address: housewaretanzania@gmail.com
+   - Office address: Mbezi Beach Makonde, near Mbezi Garden Hotel, Dar es Salaam, Tanzania
    - Locations data
-   - Social media links
+   - Social media links: @houseware_tz, @my_kitchen.tz
    - Company story/history
 
 3. **Projects** (lib/data/projects.ts)

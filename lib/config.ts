@@ -4,22 +4,18 @@
  */
 
 // WhatsApp Integration
-export const WHATSAPP_NUMBER = '[INSERT WHATSAPP NUMBER]'; // Format: 255XXXXXXXXX (Tanzania)
+export const WHATSAPP_NUMBER = '255714881668'; // Format: 255XXXXXXXXX (Tanzania)
 
 export function getWhatsAppLink(message: string): string {
-  if (WHATSAPP_NUMBER === '[INSERT WHATSAPP NUMBER]') {
-    console.warn('WhatsApp number not configured. Please update WHATSAPP_NUMBER in lib/config.ts');
-    return '#';
-  }
   const encoded = encodeURIComponent(message);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
 }
 
 // Site Configuration
 export const SITE_CONFIG = {
-  name: 'Houseware Tanzania',
+  name: 'HOUSEWARE TANZANIA LIMITED',
   description: 'Premium Bespoke Cabinetry & Interior Solutions',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://housewwaretz.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://housewaretz.co.tz',
   locale: 'en_TZ',
 };
 

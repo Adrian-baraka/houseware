@@ -6,32 +6,54 @@ import { getWhatsAppLink } from '@/lib/config';
 import { COMPANY_INFO } from '@/lib/data/company';
 
 export default function Footer() {
+  const whatsappLink1 = getWhatsAppLink('Hello Houseware');
+  const whatsappLink2 = `https://wa.me/255716470812`;
+
   return (
     <footer className="bg-hw-charcoal text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-serif font-bold mb-4">HOUSEWARE</h3>
+            <h3 className="text-lg font-serif font-bold mb-4">HOUSEWARE TANZANIA LIMITED</h3>
             <p className="text-sm text-gray-400 mb-6">
               Bespoke cabinetry and interior solutions designed for your space.
             </p>
+            <p className="text-sm text-gray-400 mb-6">
+              Mbezi Beach Makonde, near Mbezi Garden Hotel, Dar es Salaam, Tanzania
+            </p>
             <div className="space-y-2">
               <a
-                href={getWhatsAppLink('Hello Houseware')}
+                href={whatsappLink1}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm hover:text-hw-warm transition-colors"
               >
                 <FaWhatsapp size={16} />
-                WhatsApp
+                WhatsApp: {COMPANY_INFO.phoneDisplay}
+              </a>
+              <a
+                href={whatsappLink2}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm hover:text-hw-warm transition-colors"
+              >
+                <FaWhatsapp size={16} />
+                WhatsApp: {COMPANY_INFO.whatsappSecondaryDisplay}
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phone}`}
                 className="flex items-center gap-2 text-sm hover:text-hw-warm transition-colors"
               >
                 <FaPhone size={16} />
-                {COMPANY_INFO.phone}
+                {COMPANY_INFO.phoneDisplay}
+              </a>
+              <a
+                href={`tel:${COMPANY_INFO.hardwareSalesPhone}`}
+                className="flex items-center gap-2 text-sm hover:text-hw-warm transition-colors"
+              >
+                <FaPhone size={16} />
+                Hardware & Accessories: {COMPANY_INFO.hardwareSalesPhoneDisplay}
               </a>
               <a
                 href={`mailto:${COMPANY_INFO.email}`}
@@ -148,6 +170,17 @@ export default function Footer() {
                   <FaInstagram size={20} />
                 </a>
               )}
+              {COMPANY_INFO.social?.instagramKitchen && (
+                <a
+                  href={COMPANY_INFO.social.instagramKitchen}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-hw-warm transition-colors"
+                  title="My Kitchen TZ"
+                >
+                  <FaInstagram size={20} />
+                </a>
+              )}
               {COMPANY_INFO.social?.facebook && (
                 <a
                   href={COMPANY_INFO.social.facebook}
@@ -164,7 +197,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Houseware Tanzania. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} HOUSEWARE TANZANIA LIMITED. All rights reserved.</p>
         </div>
       </div>
     </footer>

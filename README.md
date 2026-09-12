@@ -272,5 +272,5 @@ For ongoing maintenance:
 ## Contact
 
 For website maintenance and updates:
-- Email: [INSERT EMAIL]
-- WhatsApp: [INSERT WHATSAPP]
+- Email: housewaretanzania@gmail.com
+- WhatsApp: +255714881668 (0714 881 668)

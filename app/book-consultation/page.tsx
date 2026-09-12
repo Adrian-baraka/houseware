@@ -326,10 +326,13 @@ export default function BookConsultationPage() {
                     </p>
                     <div className="space-y-2 text-sm">
                       <p>
-                        <span className="font-semibold">Phone:</span> [INSERT PHONE]
+                        <span className="font-semibold">General & WhatsApp:</span> 0714 881 668 / 0716 470 812
                       </p>
                       <p>
-                        <span className="font-semibold">Email:</span> [INSERT EMAIL]
+                        <span className="font-semibold">Hardware & Accessories:</span> 0794 738 778
+                      </p>
+                      <p>
+                        <span className="font-semibold">Email:</span> housewaretanzania@gmail.com
                       </p>
                     </div>
                   </div>

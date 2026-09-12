@@ -1,9 +1,10 @@
 import HeroSection from '@/components/HeroSection';
 import Link from 'next/link';
 import Image from 'next/image';
+import { COMPANY_INFO } from '@/lib/data/company';
 
 export const metadata = {
-  title: 'Our Story | Houseware Tanzania',
+  title: 'Our Story | HOUSEWARE TANZANIA LIMITED',
   description: 'Learn about Houseware, our mission, and our commitment to bespoke cabinetry excellence.',
 };
 
@@ -23,7 +24,7 @@ export default function OurStoryPage() {
             <section>
               <h2 className="text-3xl font-serif font-bold text-hw-charcoal mb-6">Who We Are</h2>
               <p className="text-lg text-hw-taupe leading-relaxed mb-4">
-                [INSERT COMPANY STORY]
+                {COMPANY_INFO.description}
               </p>
               <p className="text-lg text-hw-taupe leading-relaxed">
                 We believe that great interiors start with great cabinetry. Every project we undertake is an opportunity to demonstrate our commitment to craftsmanship, attention to detail, and customer satisfaction.
