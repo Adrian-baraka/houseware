@@ -126,27 +126,34 @@ export default function OurStoryPage() {
               </div>
             </section>
 
-            {/* Workshop & Craftsmanship */}
+            {/* The Houseware Approach */}
             <section className="space-y-8">
-              <h2 className="text-3xl font-serif font-bold text-hw-charcoal">Workshop & Craftsmanship</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative bg-hw-stone aspect-square">
-                  <Image
-                    src="/images/services/houseware-about-workshop-craftsman-03.jpg"
-                    alt="Skilled craftsman at work in the workshop"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div className="space-y-6">
+                  <p className="text-xs font-semibold text-hw-taupe uppercase tracking-wider">
+                    THE HOUSEWARE APPROACH
+                  </p>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-hw-charcoal leading-tight">
+                    Made with care.<br />
+                    Built for your space.
+                  </h2>
                 </div>
-                <div className="relative bg-hw-stone aspect-square">
-                  <Image
-                    src="/images/services/houseware-about-workshop-planing-06.jpg"
-                    alt="Precision planing and woodworking in production"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                <div className="space-y-6 text-hw-taupe leading-relaxed">
+                  <p className="text-lg">
+                    At Houseware, we believe the best spaces are the ones that feel like they belong to the people who use them. Every kitchen, wardrobe and cabinet begins with a real space, a real need and a vision for how that space should feel.
+                  </p>
+                  <p className="text-lg">
+                    We care about the details — the way a cabinet fits into a room, the way a kitchen works for the people using it, and the small finishing touches that make something feel truly yours.
+                  </p>
+                  <p className="text-lg">
+                    For us, this is more than putting cabinets together. It is about listening, understanding the space and creating something thoughtfully made for it.
+                  </p>
+                  <p className="text-lg font-semibold text-hw-charcoal pt-4 border-t border-hw-stone">
+                    Because a well-made space should feel personal.
+                  </p>
+                  <p className="text-sm text-hw-taupe uppercase tracking-wider font-semibold mt-6">
+                    Thoughtful design. Careful execution. Spaces that feel like yours.
+                  </p>
                 </div>
               </div>
             </section>
